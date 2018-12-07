@@ -14,7 +14,8 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
     
-const KEY = '';    
+const KEY = '';
+const KEY_API_DARKSKY = '';
 let encodedAddress = encodeURIComponent(argv.address);
 let geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${KEY}`;
 
@@ -22,7 +23,18 @@ axios.get(geocodeURL).then(response => {
     if (response.data.status === 'ZERO_RESULTS') {
         throw new Error('Unable to find that address.');
     }
-    console.log(response.data);
+
+    let lat = response.data.results[0].geometry.location.lat;
+    let lng = response.data.results[0].geometry.location.lng;
+    let weatherURL = `https://api.darksky.net/forecast/${KEY_API_DARKSKY}/${lat},${lng}`;
+
+    console.log(response.data.results[0].formatted_address);
+
+    return axios.get(weatherURL);
+}).then(response => {
+    let temperature = response.data.currently.temperature;
+    let apparentTemperature = response.data.currently.apparentTemperature;
+    console.log(`It's currently ${temperature}. It feels like ${apparentTemperature}.`);
 }).catch(error => {
     if (error.code === 'ENOTFOUND') {
         console.log('Unable to connect to API servers.');
