@@ -4,7 +4,7 @@
   "description": "udemy node weather app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env-cmd -f ./config/dev.env node ./playground/app.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
     "axios": "^0.18.0",
     "request": "^2.88.0",
     "yargs": "^12.0.2"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.0.1"
   }
 }
