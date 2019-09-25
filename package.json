@@ -1,21 +1,21 @@
 {
-  "name": "udemy-node-weather-app",
+  "name": "node-weather-app",
   "version": "1.0.0",
-  "description": "udemy node weather app",
+  "description": "node weather app",
   "main": "index.js",
   "scripts": {
     "dev": "env-cmd -f ./config/dev.env node ./playground/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ermondel/udemy-node-weather-app.git"
+    "url": "git+https://github.com/ermondel/node-weather-app.git"
   },
   "author": "Ermondel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ermondel/udemy-node-weather-app/issues"
+    "url": "https://github.com/ermondel/node-weather-app/issues"
   },
-  "homepage": "https://github.com/ermondel/udemy-node-weather-app#readme",
+  "homepage": "https://github.com/ermondel/node-weather-app#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "request": "^2.88.0",
