@@ -1,24 +1,28 @@
 const request = require('request');
 
+let url = 'https://api.darksky.net/forecast/{key}/{lat},{long}?units={un}';
+const errors = {
+  connect: 'Unable to connect to weather service.',
+  location: 'Unable to find location.'
+};
+
 const forecast = (latitude, longitude, callback, units = 'si') => {
-  const url = `https://api.darksky.net/forecast/${process.env.API_KEY}/${latitude},${longitude}?units=${units}`;
+  url = url.replace('{key}', process.env.API_KEY);
+  url = url.replace('{lat}', latitude);
+  url = url.replace('{long}', longitude);
+  url = url.replace('{un}', units);
 
-  request({ url, json: true }, (error, { body } = {}) => {
+  request({ url, json: true }, (error, response) => {
     if (error) {
-      callback('Unable to connect to weather service.', undefined);
-    } else if (body.error) {
-      callback('Unable to find location.', undefined);
+      callback(errors.connect, undefined);
+    } else if (response.body.error) {
+      callback(errors.location, undefined);
     } else {
-      const forecast = {
-        temp: body.currently.temperature,
-        rain: body.currently.precipProbability,
-        firstDay: body.daily.data[0].summary
-      };
+      let forecast = `${response.body.daily.data[0].summary} \n`;
+      forecast += `It is currently ${response.body.currently.temperature} degrees out. \n`;
+      forecast += `There is a ${response.body.currently.precipProbability}% chance of rain. \n`;
 
-      callback(
-        undefined,
-        `${forecast.firstDay} It is currently ${forecast.temp} degrees out. There is a ${forecast.rain}% chance of rain.`
-      );
+      callback(undefined, forecast);
     }
   });
 };
