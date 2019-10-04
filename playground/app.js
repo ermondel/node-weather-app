@@ -3,16 +3,19 @@ const forecast = require('./forecast');
 
 const address = process.argv[2];
 if (address) {
-  const error = geocode(address, (error, data) => {
-    if (error) return console.log(error);
+  const error = geocode(
+    address,
+    (error, { latitude, longitude, location } = {}) => {
+      if (error) return console.log(error);
 
-    if (!error && data) {
-      forecast(data.latitude, data.longitude, (error, forecastData) => {
+      forecast(latitude, longitude, (error, forecastData) => {
         if (error) return console.log(error);
+
+        console.log(address, '(' + location + ')');
         console.log(forecastData);
       });
     }
-  });
+  );
 
   if (error) console.log(error);
 } else {
