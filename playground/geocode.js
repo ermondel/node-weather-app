@@ -8,7 +8,7 @@ const errors = {
 
 const geocode = (address, callback) => {
   url = url.replace('{address}', encodeURIComponent(address));
-  url = url.replace('{key}', process.env.MAPBOX_API_KEY);
+  url = url.replace('{key}', process.env.NWA_MAPBOX_API_KEY);
 
   request({ url, json: true }, (error, response) => {
     if (error) {

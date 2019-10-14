@@ -7,7 +7,7 @@ const errors = {
 };
 
 const forecast = (latitude, longitude, callback, units = 'si') => {
-  url = url.replace('{key}', process.env.API_KEY);
+  url = url.replace('{key}', process.env.NWA_DARKSKY_API_KEY);
   url = url.replace('{lat}', latitude);
   url = url.replace('{long}', longitude);
   url = url.replace('{un}', units);

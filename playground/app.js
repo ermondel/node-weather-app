@@ -2,6 +2,7 @@ const geocode = require('./geocode');
 const forecast = require('./forecast');
 
 const address = process.argv[2];
+
 if (address) {
   const error = geocode(
     address,
