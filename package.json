@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "node weather app",
   "scripts": {
-    "start": "env-cmd -f ./.env node ./src/app.js"
+    "app": "env-cmd -f ./.env node ./src/app.js"
   },
   "repository": {
     "type": "git",
