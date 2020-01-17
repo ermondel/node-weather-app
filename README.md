@@ -1,4 +1,4 @@
-![Node.js ](https://github.com/ermondel/tsttmp/blob/master/files/icons48b/Nodejs48v2.png)
+![Node.js ](https://github.com/ermondel/wiki/blob/master/files/icons48b/Nodejs48v2.png)
 
 ## Node Weather CLI App
 
