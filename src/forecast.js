@@ -3,7 +3,7 @@ const request = require('request');
 let url = 'https://api.darksky.net/forecast/{key}/{lat},{long}?units={un}';
 const errors = {
   connect: 'Unable to connect to weather service.',
-  location: 'Unable to find location.'
+  location: 'Unable to find location.',
 };
 
 const forecast = (latitude, longitude, callback, units = 'si') => {

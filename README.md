@@ -1,14 +1,20 @@
 ![Node.js ](https://github.com/ermondel/wiki/blob/master/files/icons48b/Nodejs48v2.png)
 
-## Node Weather CLI App
-
-_Project for Udemy NodeJS course._
+# Node Weather CLI App
 
 ### About
 
-Weather forecast in the console for the specified address.
+Weather forecast in the console for the specified address. Project for Udemy NodeJS course.
+
+### Requirements
+
+[Node](https://nodejs.org/)
 
 ### Install
+
+```
+git clone git@github.com:ermondel/node-weather-app.git
+```
 
 ```
 npm install
@@ -22,10 +28,7 @@ npm run app Kiev
 
 ### Technologies
 
-| name                    | description                                    |
-| ----------------------- | ---------------------------------------------- |
-| Node.js                 | cross-platform JavaScript run-time environment |
-| request                 | http calls                                     |
-| darksky.net api         | source of hyperlocal weather information       |
-| mapbox.com api          | maps and location for developers               |
-| maps.googleapis.com api | geo-location                                   |
+- Node
+- request
+- darksky.net api
+- mapbox.com api
